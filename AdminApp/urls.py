@@ -1,8 +1,8 @@
 """
-URL configuration for Etech project.
+URL configuration for E_tech_Bazzar project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
+    https://docs.djangoproject.com/en/5.0/topics/http/urls/
 Examples:
 Function views
     1. Add an import:  from my_app import views
@@ -16,11 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-
-
+from AdminApp import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('EtechApp.urls')),
-    path('AdminApp/', include('AdminApp.urls'))
+    path('layout', views.layout, name='layout'),
+    path('dash', views.dash, name='dash'),
+    path('common_form', views.common_form, name='commn_form')
 ]
