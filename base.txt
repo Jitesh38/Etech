@@ -1,0 +1,27 @@
+     <select class="nice-select select-search-category">
+                    <option value="0">All</option>
+                    {% for cat in cat %}
+                    <option value="{{ forloop.counter }}">
+                      {{ cat.name }}
+                    </option>
+                    {% endfor %}
+                  </select>
+
+
+
+
+                               <ul class="hb-dropdown hb-sub-dropdown">
+                              {% for subcat in subcat %}
+                              <li>
+                                <a href="/customer/category/{{ subcat.name }}"
+                                  >{{ subcat.name }}</a
+                                >
+                              </li>
+                              {% endfor %}
+                            </ul>
+
+
+                             <form action="/customer/logout">
+          {% csrf_token %}
+        <button class="btn btn-warning">Logout</button>
+      </form>

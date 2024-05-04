@@ -1,0 +1,48 @@
+{% extends 'customer/base.html' %} {% load static %} {% block title %}E-tech -
+Payment {% endblock title %} {% block content%}
+<div class="page-section mt-40 mb-40">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 col-xs-12">
+        <!-- !Form start -->
+
+        <form
+          class="text-center border border-light p-5"
+          action="/customer/success"
+          method="POST"
+        >
+          {% csrf_token %}
+
+          <!-- RAZORPAY INTEGRATION HERE -->
+          <script
+            src="https://checkout.razorpay.com/v1/checkout.js"
+            data-key="rzp_test_PvM4GxK9MYlCUc"
+            data-amount="{{payment.amount}}"
+            data-currency="INR"
+            data-order_id="{{payment.id}}"
+            data-buttontext="Pay with Razorpay"
+            data-buttontext="Cash On Delivery"
+            data-name="E Tech"
+            data-description="Complete Online Solution"
+            data-image="https://oibp1.000webhostapp.com/logo.PNG"
+            data-prefill.name="{{request.user.first_name}}"
+            data-prefill.email="{{request.user.email}}"
+            data-theme.color="#F37254"
+          ></script>
+        </form>
+
+        <form
+          class="text-center border border-light p-5"
+          action="/customer/Sucess1"
+          method="POST"
+        >
+          {% csrf_token %}
+
+          <!-- RAZORPAY INTEGRATION HERE -->
+         <input type="submit" value="Cash On Delivery">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
