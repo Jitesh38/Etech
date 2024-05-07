@@ -45,6 +45,6 @@ urlpatterns = [
     path('cancelorder/<int:slug>', views.cancelorder, name='cancelorder'),
     path('filter', views.filter, name='filter'),
     path('review', views.review, name='review'),
-    path('analysis', views.analysis, name='analysis'),
+    path('analysis', views.analysis, name='analysis')
     
 ]
